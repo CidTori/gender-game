@@ -28,6 +28,8 @@
           <div class="input-group input-group-lg">
             <input
               type="number"
+              min="0"
+              max="9"
               id="n0"
               class="form-control"
               onchange="update()"
@@ -35,6 +37,8 @@
             />
             <input
               type="number"
+              min="0"
+              max="9"
               id="n1"
               class="form-control"
               onchange="update()"
@@ -42,6 +46,8 @@
             />
             <input
               type="number"
+              min="0"
+              max="9"
               id="n2"
               class="form-control"
               onchange="update()"
@@ -49,6 +55,8 @@
             />
             <input
               type="number"
+              min="0"
+              max="9"
               id="n3"
               class="form-control"
               onchange="update()"
@@ -56,10 +64,10 @@
             />
             <input type="submit" onsubmit="update()" value="Valider" />
           </div>
-          <h2 id="announce" />
+          <h2 id="announce"></h2>
+          <div id="description" style="text-align: left"></div>
         </div>
         <div class="col-md-6" style="text-align: center">
-          <div id="description" style="text-align: left"></div>
           <img
             id="baby"
             class="img-fluid d-flex"
