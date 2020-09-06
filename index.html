@@ -57,13 +57,14 @@
           </div>
           <h2 id="announce" />
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="text-align: center">
           <img
             id="baby"
-            class="img-fluid h-100 d-flex"
+            class="img-fluid d-flex"
             src=""
-            style="margin: auto"
+            style="margin: auto; height: 90%"
           />
+          <span id="credits" />
         </div>
       </div>
     </div>
@@ -84,21 +85,32 @@
       var numbers = [0, 1, 2, 3].map((n) => document.getElementById("n" + n));
       var img = document.getElementById("baby");
       var announce = document.getElementById("announce");
+      var credits = document.getElementById("credits");
+
+      var CREDITS =
+        'Illustration réalisée par Lauriane Desroches (\
+          <a href="https://www.etsy.com/fr/shop/SongeDesign">Etsy</a>, \
+          <a href="https://laurianedesroches.wixsite.com/illustrations">WixSite</a>, \
+          <a href="https://instagram.com/lauriane_illustration">Instagram</a>\
+        )';
 
       var itsEmpty = function () {
         img.src = "";
+        credits.innerHTML = "";
         announce.innerText = "";
         document.body.style.background = "#ffe6cc";
       };
 
       var itsABoy = function () {
         img.src = "boy.png";
+        credits.innerHTML = CREDITS;
         announce.innerText = "Félicitations ! C'est un garçon !";
         document.body.style.background = "#d8edf3";
       };
 
       var itsAWhat = function () {
         img.src = "other.png";
+        credits.innerHTML = CREDITS;
         announce.innerText =
           "Félicitations ! C'est un... Euh, il doit y avoir une erreur...";
         document.body.style.background = "#d9f2d9";
