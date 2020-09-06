@@ -31,28 +31,28 @@
               id="n0"
               class="form-control"
               onchange="update()"
-              onkeypress="update()"
+              onkeyup="focusOn(1)"
             />
             <input
               type="number"
               id="n1"
               class="form-control"
               onchange="update()"
-              onkeyup="update()"
+              onkeyup="focusOn(2)"
             />
             <input
               type="number"
               id="n2"
               class="form-control"
               onchange="update()"
-              onkeyup="update()"
+              onkeyup="focusOn(3)"
             />
             <input
               type="number"
               id="n3"
               class="form-control"
               onchange="update()"
-              onkeyup="update()"
+              onkeyup="blurAll()"
             />
           </div>
           <h2 id="announce" />
@@ -93,6 +93,14 @@
           <a href="https://laurianedesroches.wixsite.com/illustrations">WixSite</a>, \
           <a href="https://instagram.com/lauriane_illustration">Instagram</a>\
         )';
+
+      var focusOn = function (i) {
+        numbers[i].focus();
+      };
+
+      var blurAll = function () {
+        numbers[numbers.length - 1].blur();
+      };
 
       var itsEmpty = function () {
         img.src = "";
