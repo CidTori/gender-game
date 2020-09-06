@@ -1,38 +1,126 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
-  <title>Gender Game</title>
-  <meta name="description" content="Gender Game">
-  <meta name="author" content="CidTori">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Gender Game</title>
+    <meta name="description" content="Gender Game" />
+    <meta name="author" content="CidTori" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <!--link rel="stylesheet" href="css/styles.css?v=1.0"-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!--link rel="stylesheet" href="css/styles.css?v=1.0"-->
+  </head>
 
-</head>
-
-<body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="input-group">
-        <input type="number" id="n1">
-        <input type="number" id="n2">
-        <input type="number" id="n3">
-        <input type="number" id="n4">
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1 class="row">Gender Game</h1>
+          <div class="input-group input-group-lg">
+            <input
+              type="number"
+              id="n0"
+              class="form-control"
+              onchange="update()"
+            />
+            <input
+              type="number"
+              id="n1"
+              class="form-control"
+              onchange="update()"
+            />
+            <input
+              type="number"
+              id="n2"
+              class="form-control"
+              onchange="update()"
+            />
+            <input
+              type="number"
+              id="n3"
+              class="form-control"
+              onchange="update()"
+            />
+          </div>
+          <h2 id="announce" />
+        </div>
+        <div class="col-6">
+          <img id="baby" class="img-fluid h-100" src="" />
+        </div>
       </div>
     </div>
-    
-    <div class="row">
-      <img id="baby" src="other.png"/>
-    </div>
-  </div>
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <!--script src="js/scripts.js"></script-->
-</body>
+
+    <style>
+      html,
+      body,
+      div {
+        max-height: 100vh;
+        max-width: 100vw;
+      }
+    </style>
+
+    <script>
+      var answers = [0, 1, 2, 3];
+      var numbers = [0, 1, 2, 3].map((n) => document.getElementById("n" + n));
+      var img = document.getElementById("baby");
+      var announce = document.getElementById("announce");
+
+      var itsEmpty = function () {
+        img.src = "";
+        img.alt = "";
+        announce.innerText = "";
+      };
+
+      var itsABoy = function () {
+        img.src = "boy.png";
+        img.alt = "un bébé garçon";
+        announce.innerText = "Félicitations ! C'est un garçon !";
+      };
+
+      var itsAWhat = function () {
+        img.src = "other.png";
+        img.alt = "un bébé extra-terrestre";
+        announce.innerText =
+          "Félicitations ! C'est un... Euh, il doit y avoir un problème...";
+      };
+
+      var update = function () {
+        if (!numbers.every((n) => n.value !== "")) {
+          itsEmpty();
+        } else if (numbers.every((n, i) => n.value == answers[i])) {
+          itsABoy();
+        } else {
+          itsAWhat();
+        }
+      };
+
+      update();
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <!--script src="js/scripts.js"></script-->
+  </body>
 </html>
