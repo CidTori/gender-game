@@ -64,7 +64,7 @@
             />
             <input type="submit" onsubmit="update()" value="Valider" />
           </div>
-          <h2 id="announce"></h2>
+          <div id="announce"></div>
           <div id="description" style="text-align: left"></div>
         </div>
         <div class="col-md-6" style="text-align: center">
@@ -74,7 +74,7 @@
             src=""
             style="margin: auto; height: 90%"
           />
-          <span id="credits" />
+          <span id="credits"></span>
         </div>
       </div>
     </div>
@@ -106,23 +106,23 @@
         )';
 
       var DESCRIPTION =
-        "<b>Nous attendons avec impatience un nouveaux membre dans notre petite famille, \
-        pour découvrir si nous attendons une fille ou un garçon jouez avec nous ! <br/>\
+        "<b>Nous attendons avec impatience un nouveau membre dans notre petite famille, \
+        pour découvrir si nous attendons une fille ou un garçon, jouez avec nous ! <br/>\
         Voici le but du jeu, vous devez saisir un nombre à 4 chiffres. \
         Vous pourrez deviner ceux-ci grâce au petit questionnaire ci-dessous : </b><br/><ol>\
-        <li><u>Depuis combien de temps sommes-nous mariés ?</u><br/>\
-        3 ans, 1 an ou 5 ans ?<br/>\
-        Le nombre d’année(s) de mariage choisit sera votre premier chiffre mystère. </li>\
-        <li><u>Quel âge à Merlin Le Dodu ?</u><br/>\
-        2 ans, 6 ans ou 4 ans ?<br/>\
-        L’âge de Merlin sera votre deuxième chiffre mystère. </li>\
-        <li><u>Combien d’animaux avons-nous ? (Poissons non inclus)</u><br/>\
-        2, 4 ou 1 ?<br/>\
-        Le nombre de petite(s) bête(s) que nous possédons sera votre troisième chiffre mystère. </li>\
-        <li><u>En quelle année nous sommes-nous rencontrés ?</u><br/>\
-        2012, 2008 ou 2010 ?<br/>\
-        Le dernier chiffre de l’année choisie sera votre quatrième chiffre mystère. \
-        (Exemple : pour 2024 on notera 4)</li>\
+          <li><u>Depuis combien de temps sommes-nous mariés ?</u><br/>\
+          3 ans, 1 an ou 5 ans ?<br/>\
+          Le nombre d’années de mariage choisi sera votre premier chiffre mystère. </li>\
+          <li><u>Quel âge a Merlin Le Dodu ?</u><br/>\
+          2 ans, 6 ans ou 4 ans ?<br/>\
+          L’âge de Merlin sera votre deuxième chiffre mystère. </li>\
+          <li><u>Combien d’animaux avons-nous ? (poissons non inclus)</u><br/>\
+          2, 4 ou 1 ?<br/>\
+          Le nombre de petites bêtes que nous possédons sera votre troisième chiffre mystère. </li>\
+          <li><u>En quelle année nous sommes-nous rencontrés ?</u><br/>\
+          2012, 2008 ou 2010 ?<br/>\
+          Le dernier chiffre de l’année choisie sera votre quatrième chiffre mystère. \
+          (Exemple : pour 2024 on notera 4)</li>\
         </ol>";
 
       var focusOn = function (i) {
@@ -137,7 +137,7 @@
         description.innerHTML = DESCRIPTION;
         img.src = "tetine.gif";
         credits.innerHTML = "";
-        announce.innerText = "";
+        announce.innerHTML = "";
         document.body.style.background = "#ffe6cc";
       };
 
@@ -145,7 +145,14 @@
         description.innerHTML = "";
         img.src = "boy.png";
         credits.innerHTML = CREDITS;
-        announce.innerText = "Félicitations ! C'est un garçon !";
+        announce.innerHTML =
+          '<h2>Félicitations ! C\'est un garçon !</h2>\
+          <div style="text-align: left">\
+            Nous avons le plaisir de vous annoncer que nous attendons un petit garçon pour le mois de Décembre 2020.<br/>\
+            Nous serons très heureux de partager ce futur bonheur avec vous.<br/>\
+            Si vous souhaitez nous aider pour l’arrivée de notre deuxième voici \
+            <a href="https://www.amazon.fr/baby-reg/julie-dcembre-2020-niort/12AFUODC9EY1P">notre liste de naissance</a>\
+          </div>';
         document.body.style.background = "#d8edf3";
       };
 
@@ -153,8 +160,8 @@
         description.innerHTML = "";
         img.src = "other.png";
         credits.innerHTML = CREDITS;
-        announce.innerText =
-          "Félicitations ! C'est un... Euh, il doit y avoir une erreur...";
+        announce.innerHTML =
+          "<h2>Félicitations ! C'est un... Euh, il doit y avoir une erreur...</h2>";
         document.body.style.background = "#d9f2d9";
       };
 
