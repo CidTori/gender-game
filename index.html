@@ -91,7 +91,7 @@
     <script>
       // C'est pas bien de tricher !
 
-      var answers = [0, 1, 2, 3];
+      var answers = [5, 4, 4, 8];
       var numbers = [0, 1, 2, 3].map((n) => document.getElementById("n" + n));
       var img = document.getElementById("baby");
       var announce = document.getElementById("announce");
@@ -111,7 +111,7 @@
         Voici le but du jeu, vous devez saisir un nombre à 4 chiffres. \
         Vous pourrez deviner ceux-ci grâce au petit questionnaire ci-dessous : </b><br/><ol>\
         <li><u>Depuis combien de temps sommes-nous mariés ?</u><br/>\
-        3 ans, 1 an ou 6 ans ?<br/>\
+        3 ans, 1 an ou 5 ans ?<br/>\
         Le nombre d’année(s) de mariage choisit sera votre premier chiffre mystère. </li>\
         <li><u>Quel âge à Merlin Le Dodu ?</u><br/>\
         2 ans, 6 ans ou 4 ans ?<br/>\
@@ -135,7 +135,7 @@
 
       var itsEmpty = function () {
         description.innerHTML = DESCRIPTION;
-        img.src = "";
+        img.src = "tetine.gif";
         credits.innerHTML = "";
         announce.innerText = "";
         document.body.style.background = "#ffe6cc";
