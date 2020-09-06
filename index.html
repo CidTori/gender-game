@@ -31,24 +31,28 @@
               id="n0"
               class="form-control"
               onchange="update()"
+              onkeypress="update()"
             />
             <input
               type="number"
               id="n1"
               class="form-control"
               onchange="update()"
+              onkeyup="update()"
             />
             <input
               type="number"
               id="n2"
               class="form-control"
               onchange="update()"
+              onkeyup="update()"
             />
             <input
               type="number"
               id="n3"
               class="form-control"
               onchange="update()"
+              onkeyup="update()"
             />
           </div>
           <h2 id="announce" />
@@ -74,6 +78,8 @@
     </style>
 
     <script>
+      // C'est pas bien de tricher !
+
       var answers = [0, 1, 2, 3];
       var numbers = [0, 1, 2, 3].map((n) => document.getElementById("n" + n));
       var img = document.getElementById("baby");
@@ -83,12 +89,14 @@
         img.src = "";
         img.alt = "";
         announce.innerText = "";
+        document.body.style.background = "plum";
       };
 
       var itsABoy = function () {
         img.src = "boy.png";
         img.alt = "un bébé garçon";
         announce.innerText = "Félicitations ! C'est un garçon !";
+        document.body.style.background = "lightblue";
       };
 
       var itsAWhat = function () {
@@ -96,6 +104,7 @@
         img.alt = "un bébé extra-terrestre";
         announce.innerText =
           "Félicitations ! C'est un... Euh, il doit y avoir une erreur...";
+        document.body.style.background = "lightgreen";
       };
 
       var update = function () {
